@@ -1,7 +1,4 @@
-# WEBPACK
-
-ссылка на youtube
-https://youtu.be/o8KMucDpSno
+# Интернет-магазин нижнего белья Inspired
 
 Для установки пакетов используйте команду npm install
 
