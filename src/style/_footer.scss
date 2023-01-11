@@ -1,0 +1,78 @@
+.footer {
+  &__container {
+    padding-top: 51px;
+    padding-bottom: 24px;
+    border-top: 1px solid $light-grey;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-areas:
+      "category social contacts"
+      "copyright . development";
+    gap: 26px 20px;
+
+    @include laptop {
+      padding-top: 31px;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    @include tablet {
+      padding-top: 25px;
+      padding-bottom: 16px;
+      grid-template-columns: 1fr 2fr 1fr;
+      gap: 17px 20px;
+    }
+    @include mobile {
+      padding-top: 17px;
+      grid-template-columns: 1fr max-content;
+      grid-template-areas:
+        "category social"
+        "contacts contacts"
+        "development development"
+        "copyright copyright";
+      gap: 24px 20px;
+    }
+  }
+
+  &__title {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    text-transform: uppercase;
+
+    @include tablet {
+      font-size: 16px;
+      line-height: 19px;
+    }
+    @include mobile {
+      font-size: 14px;
+      line-height: 17px;
+    }
+  }
+
+  &__link {
+    transition: color 0.3s ease-in-out;
+    
+    &:hover {
+      color: $grey;
+    }
+  }
+
+  &__item {
+    &--category {
+      grid-area: category;
+    }
+    &--social {
+      grid-area: social;
+      justify-self: center;
+    }
+    &--contacts {
+      grid-area: contacts;
+    }
+    &--copyright {
+      grid-area: copyright;
+      align-self: end;
+    }
+    &--development {
+      grid-area: development;
+    }
+  }
+}

@@ -3,3 +3,24 @@ $second-color: #fff;
 $light-grey: #DCDCDC;
 $grey: #8A8A8A;
 $dark-grey: #404040;
+$focus: rgba(255, 255, 255, 0.1);;
+
+$laptop: 1024px;
+$tablet: 768px;
+$mobile: 540px;
+
+@mixin laptop {
+  @media (max-width: #{$laptop}) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media (max-width: #{$tablet}) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media (max-width: #{$mobile}) {
+    @content;
+  }
+}

@@ -1,0 +1,17 @@
+.footer-development {
+  font-size: 12px;
+  line-height: 1.3;
+
+  @include tablet {
+    font-size: 10px;
+  }
+  &__item + &__item {
+    margin-top: 8px;
+    @include tablet {
+      margin-top: 11px;
+    }
+    @include mobile {
+      margin-top: 4px;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+.footer-contacts {
+  
+  &__link {
+    display: block;
+
+    @include tablet {
+      font-size: 14px;
+      line-height: 17px;
+    }
+    @include mobile {
+      font-size: 12px;
+      line-height: 15px;
+    }
+  }
+  &__link + &__link {
+    margin-top: 16px;
+
+    @include tablet {
+      margin-top: 21px;
+    }
+    @include mobile {
+      margin-top: 9px;
+    }
+  }
+}
