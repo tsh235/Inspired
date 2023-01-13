@@ -1,3 +1,5 @@
+import img from '../../img/product-01.jpg';
+
 export const renderProducts = () => {
   const products = document.querySelector(".goods");
 
@@ -9,7 +11,7 @@ export const renderProducts = () => {
         <li class="goods__item">
           <article class="product">
             <a href="#!" class="product__link">
-              <img class="product__image" src="./img/product-01.jpg" alt="Бюстгальтер-Балконет Wien из Микрофибры">
+              <img class="product__image" src="${img}" alt="Бюстгальтер-Балконет Wien из Микрофибры">
               <h3 class="product__title">Бюстгальтер-Балконет Wien из Микрофибры</h3>
             </a>
             <div class="product__row">
@@ -33,7 +35,7 @@ export const renderProducts = () => {
         <li class="goods__item">
           <article class="product">
             <a href="#!" class="product__link">
-              <img class="product__image" src="./img/product-01.jpg" alt="Бюстгальтер-Балконет Wien из Микрофибры">
+              <img class="product__image" src="${img}" alt="Бюстгальтер-Балконет Wien из Микрофибры">
               <h3 class="product__title">Бюстгальтер-Балконет Wien из Микрофибры</h3>
             </a>
             <div class="product__row">
@@ -57,7 +59,7 @@ export const renderProducts = () => {
         <li class="goods__item">
           <article class="product">
             <a href="#!" class="product__link">
-              <img class="product__image" src="./img/product-01.jpg" alt="Бюстгальтер-Балконет Wien из Микрофибры">
+              <img class="product__image" src="${img}" alt="Бюстгальтер-Балконет Wien из Микрофибры">
               <h3 class="product__title">Бюстгальтер-Балконет Wien из Микрофибры</h3>
             </a>
             <div class="product__row">
@@ -81,7 +83,7 @@ export const renderProducts = () => {
         <li class="goods__item">
           <article class="product">
             <a href="#!" class="product__link">
-              <img class="product__image" src="./img/product-01.jpg" alt="Бюстгальтер-Балконет Wien из Микрофибры">
+              <img class="product__image" src="${img}" alt="Бюстгальтер-Балконет Wien из Микрофибры">
               <h3 class="product__title">Бюстгальтер-Балконет Wien из Микрофибры</h3>
             </a>
             <div class="product__row">
@@ -105,7 +107,7 @@ export const renderProducts = () => {
         <li class="goods__item">
           <article class="product">
             <a href="#!" class="product__link">
-              <img class="product__image" src="./img/product-01.jpg" alt="Бюстгальтер-Балконет Wien из Микрофибры">
+              <img class="product__image" src="${img}" alt="Бюстгальтер-Балконет Wien из Микрофибры">
               <h3 class="product__title">Бюстгальтер-Балконет Wien из Микрофибры</h3>
             </a>
             <div class="product__row">
@@ -129,7 +131,7 @@ export const renderProducts = () => {
         <li class="goods__item">
           <article class="product">
             <a href="#!" class="product__link">
-              <img class="product__image" src="./img/product-01.jpg" alt="Бюстгальтер-Балконет Wien из Микрофибры">
+              <img class="product__image" src="${img}" alt="Бюстгальтер-Балконет Wien из Микрофибры">
               <h3 class="product__title">Бюстгальтер-Балконет Wien из Микрофибры</h3>
             </a>
             <div class="product__row">
