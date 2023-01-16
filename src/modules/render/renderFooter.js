@@ -3,6 +3,8 @@ import { createElement } from "../createElement";
 export const renderFooter = () => {
   const footer = document.querySelector(".footer");
 
+  footer.innerHTML = '';
+
   const container = createElement('div', {
     className: 'container',
   }, {parent: footer});
