@@ -11,7 +11,7 @@ export const renderPagination = (wrapperPagination, page, pages, count) => {
   });
 
   const isNotStart = page - Math.floor(count / 2) > 1;
-  const isEnd = page - Math.floor(count / 2) > pages;
+  const isEnd = page + Math.floor(count / 2) > pages;
 
   if (count > pages) {
     count = pages;
@@ -24,7 +24,7 @@ export const renderPagination = (wrapperPagination, page, pages, count) => {
       if (isEnd) {
         n = pages - count + i + 1;
       } else {
-        n = page + Math.floor(count / 2) + i;
+        n = page - Math.floor(count / 2) + i;
       }
     }
 
