@@ -17,9 +17,11 @@
     font-size: 14px;
     line-height: 17px;
     color: $grey;
-  }
-  &__item {
-    
+
+    @include tablet {
+      font-size: 10px;
+    line-height: 12px;
+    }
   }
   &__link--active {
     padding: 0 5px 7px 4px;
