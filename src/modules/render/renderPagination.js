@@ -1,14 +1,18 @@
-import { createElement } from "../createElement";
-import { router } from "../router";
+import { createElement } from "../utils/createElement";
+import { getUrl } from "../utils/getUrl";
 
 export const renderPagination = (wrapperPagination, page, pages, count) => {
-  wrapperPagination.textContent = '';
+  wrapperPagination.textContent = "";
 
-  const paginationList = createElement('ul', {
-    className: 'pagination__list',
-  }, {
-    parent: wrapperPagination,
-  });
+  const paginationList = createElement(
+    "ul",
+    {
+      className: "pagination__list",
+    },
+    {
+      parent: wrapperPagination,
+    }
+  );
 
   const isNotStart = page - Math.floor(count / 2) > 1;
   const isEnd = page + Math.floor(count / 2) > pages;
@@ -28,46 +32,57 @@ export const renderPagination = (wrapperPagination, page, pages, count) => {
       }
     }
 
-    createElement('li', {
-      className: 'pagination__item',
-    }, {
-      parent: paginationList,
-      append: createElement('a', {
-        textContent: n,
-        href: `${router.getCurrentLocation().url}?page=${n}`,
-        className: `pagination__link
-          ${page === n ? 'pagination__link--active' : ''}`,
-      })
-    })
+    createElement(
+      "li",
+      {
+        className: "pagination__item",
+      },
+      {
+        parent: paginationList,
+        append: createElement("a", {
+          textContent: n,
+          href: getUrl({page: n}),
+          className: `pagination__link
+          ${page === n ? "pagination__link--active" : ""}`,
+        }),
+      }
+    );
   }
 
   if (pages > count) {
-    createElement('a', {
-      className: `pagination__arrow pagination__arrow--start 
-        ${!isNotStart ? 'pagination__arrow--disabled' : ''}`,
-      href: `${router.getCurrentLocation().url}?page=${1}`,
-      innerHTML: `
+    createElement(
+      "a",
+      {
+        className: `pagination__arrow pagination__arrow--start 
+        ${!isNotStart ? "pagination__arrow--disabled" : ""}`,
+        href: getUrl({page: 1}),
+        innerHTML: `
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M14 15.06L10.9096 12L14 8.94L13.0486 8L9 12L13.0486 16L14 15.06Z" fill="currentColor"/>
         </svg>
       `,
-      ariaLabel: 'В начало',
-    }, {
-      parent: wrapperPagination,
-    }),
-
-    createElement('a', {
-      className: `pagination__arrow pagination__arrow--end 
-        ${isEnd ? 'pagination__arrow--disabled' : ''}`,
-      href: `${router.getCurrentLocation().url}?page=${pages}`,
-      innerHTML: `
+        ariaLabel: "В начало",
+      },
+      {
+        parent: wrapperPagination,
+      }
+    ),
+      createElement(
+        "a",
+        {
+          className: `pagination__arrow pagination__arrow--end 
+        ${isEnd ? "pagination__arrow--disabled" : ""}`,
+          href: getUrl({page: pages}),
+          innerHTML: `
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M10 15.06L13.0904 12L10 8.94L10.9514 8L15 12L10.9514 16L10 15.06Z" fill="currentColor"/>
         </svg>
       `,
-      ariaLabel: 'В конец',
-    }, {
-      parent: wrapperPagination
-    })
+          ariaLabel: "В конец",
+        },
+        {
+          parent: wrapperPagination,
+        }
+      );
   }
-}
+};
