@@ -4,7 +4,20 @@
   height: 18px;
   border-radius: 50%;
   display: block;
+
+  // не работает в 20% браузеров
+  // &:has(:checked) {
+  //   border: 0.4px solid $grey;
+  // }
   
+  &__input:checked + &__check {
+    position: absolute;
+    inset: 0;
+    display: block;
+    border: 0.4px solid $grey;
+    border-radius: 50%;
+  }
+
   &--check {
     border: 0.4px solid $grey;
   }

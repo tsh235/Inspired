@@ -1,33 +1,33 @@
 .pagination {
   display: flex;
   justify-content: center;
-  align-items: center;
   gap: 16px;
 
-  &__arrow--start {
-    order: 1;
-  }
-  &__arrow--end {
-    order: 3;
-  }
   &__list {
-    order: 2;
     display: flex;
-    gap: 7px;
+    gap: 8px;
+    padding-top: 3px;
     font-size: 14px;
     line-height: 17px;
     color: $grey;
 
     @include tablet {
+      padding-top: 6px;
       font-size: 10px;
-    line-height: 12px;
+      line-height: 12px;
     }
   }
   &__link--active {
-    padding: 0 5px 7px 4px;
+    display: block;
+    padding-bottom: 7px;
+    width: 16px;
     color: $main-color;
     border-bottom: 1px solid $main-color;
     cursor: default;
+
+    @include tablet {
+      width: 10px;
+    }
   }
   &__arrow {
     width: 24px;
