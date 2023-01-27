@@ -1,0 +1,113 @@
+.modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, 0.15);
+
+  &__body {
+    position: relative;
+    max-width: 800px;
+    width: 100%;
+    margin: auto;
+    background: #ffffff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+    padding: 40px 24px;
+
+    @include laptop {
+      max-width: 700px;
+    }
+    @include tablet {
+      max-width: 500px;
+    }
+    @include mobile {
+      max-width: 320px;
+      padding: 24px 15px 15px; 
+    }
+  }
+
+  &__title {
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 39px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+
+    @include laptop {
+      font-size: 28px;
+      line-height: 32px;
+    }
+    @include tablet {
+      font-size: 24px;
+      line-height: 28px;
+    }
+    @include mobile {
+      font-size: 18px;
+      line-height: 22px;
+    }
+  }
+
+  &__description {
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    margin-bottom: 34px;
+
+    @include tablet {
+      margin-bottom: 24px;
+    }
+    @include mobile {
+      font-size: 12px;
+      line-height: 15px;
+    }
+    &.modal__description--thank {
+      margin-bottom: 0;
+    }
+  }
+
+  &__customer-data {
+    margin-bottom: 24px;
+
+    @include mobile {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__goods {
+    margin-bottom: 24px;
+
+    @include tablet {
+      margin-bottom: 16px;
+    }
+    @include mobile {
+      margin-bottom: 12px;
+    }
+  }
+
+  &__total {
+    margin-left: auto;
+    max-width: 145px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: right;
+    text-transform: uppercase;
+
+    @include mobile {
+      font-size: 10px;
+      line-height: 12px;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    right: 6px;
+    top: 6px;
+
+     &:hover {
+      opacity: .5;
+     }
+  }
+}
