@@ -9,11 +9,13 @@
     display: block;
   }
   &__form {
+    position: relative;
     display: flex;
     align-items: center;
     gap: 2px;
     width: 100%;
-    height: 46px;
+    height: 62px;
+    padding-bottom: 16px;
     @include tablet {
       height: 36px;
     }
@@ -26,6 +28,11 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
+
+    &--error {
+      border-color: #a10505;
+      box-shadow: 0 0 6px rgba(255, 0, 0, 0.4)
+    }
 
     @supports not selector(:focus-visible) {
       &:focus {
@@ -61,6 +68,16 @@
     font-size: 14px;
     line-height: 17px;
     text-transform: uppercase;
+    transition: 0.3s;
+
+    &:hover {
+      background-color: $grey;
+    }
+
+    &:focus, &:active {
+      background-color: $dark-grey;
+    }
+
     @include tablet {
       flex-basis: 124px;
       font-size: 10px;
@@ -68,6 +85,22 @@
     }
     @include mobile {
       flex-basis: 100px;
+    }
+  }
+
+  &__error {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+    color: #f00;
+    text-align: center;
+    margin: 0 auto;
+
+    &--show {
+      display: block;
     }
   }
 }

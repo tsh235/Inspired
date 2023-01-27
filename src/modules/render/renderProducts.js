@@ -85,7 +85,8 @@ export const renderProducts = async ({title, params, render}) => {
         appends: product.colors.map((colorId, i) => {
           const color = DATA.colors.find((item) => item.id == colorId);
           return createElement("li", {
-            className: `color color--${color.title} ${i ? "" : "color--check"}`,
+            // className: `color color--${color.title} ${i ? "" : "color--check"}`, // еди надо выделение конкретного цвета, то делаем так
+            className: `color color--${color.title}`,
           });
         }),
       }

@@ -1,9 +1,10 @@
 import logo from '../../img/logo.svg';
 import { header } from '../const';
+import { calcTotalPrice } from '../controllers/cartController';
 import { createElement } from '../utils/createElement';
 import { search, searchToggle } from "./renderSearch";
 
-export const searchButton = createElement("button", {
+const searchButton = createElement("button", {
   className: "header__link",
   innerHTML: `
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -17,7 +18,7 @@ export const searchButton = createElement("button", {
   }
 });
 
-export const cartLink = createElement("a", {
+const cartLink = createElement("a", {
   className: "header__link",
   innerHTML: `
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg" aria-label="Корзина товаров">
@@ -26,9 +27,18 @@ export const cartLink = createElement("a", {
     </svg>
     `,
   href: "#cart",
+}, {
+  append: createElement('span', {
+    className: 'header__link-count',
+  }, {
+    cb(elem) {
+      calcTotalPrice.updateCount();
+      calcTotalPrice.writeCount(elem);
+    }
+  })
 });
 
-export const favoriteLink = createElement("a", {
+const favoriteLink = createElement("a", {
   className: "header__link",
   innerHTML: `
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg" aria-label="Избранное">
@@ -53,9 +63,7 @@ createElement('a', {
   parent: container,
 })
 
-const nav = createElement(
-  "div",
-  {
+const nav = createElement("div", {
     className: "header__navigation",
   },
   {
@@ -63,35 +71,27 @@ const nav = createElement(
   }
 );
 
-createElement(
-  "ul",
-  {
+createElement("ul", {
     className: "header__nav-list",
   },
   {
     parent: nav,
     appends: [
-      createElement(
-        "li",
-        {
+      createElement("li", {
           className: "header__nav-item",
         },
         {
           append: searchButton,
         }
       ),
-      createElement(
-        "li",
-        {
+      createElement("li", {
           className: "header__nav-item",
         },
         {
           append: cartLink,
         }
       ),
-      createElement(
-        "li",
-        {
+      createElement("li", {
           className: "header__nav-item",
         },
         {

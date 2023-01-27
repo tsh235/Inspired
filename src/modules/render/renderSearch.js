@@ -6,7 +6,12 @@ export const search = createElement('div', {
 });
 
 export const searchToggle = () => {
-  search.classList.toggle('search--show');
+  if (search.classList.contains('search--show')) {
+    search.classList.remove('search--show');
+    form.reset();
+  } else {
+    search.classList.add('search--show');
+  }
 };
 
 const container = createElement('div', {
@@ -21,7 +26,7 @@ const form = createElement('form', {
   parent: container, cb: searchController,
 });
 
-createElement('input', {
+const inputSearch = createElement('input', {
   className: 'search__input',
   type: 'search',
   name: 'search',
@@ -37,3 +42,23 @@ createElement('button', {
 }, {
   parent: form,
 });
+
+const searchError = createElement('p', {
+  className: 'search__error',
+  textContent: 'Введите строку для поиска',
+  _show: true,
+}, {
+  parent: form,
+});
+
+export const showSearchError = () => {
+  searchError.classList.add('search__error--show');
+  inputSearch.classList.add('search__input--error');
+
+  clearTimeout(searchError._showTimer);
+
+  searchError._showTimer = setTimeout(() => {
+    searchError.classList.remove('search__error--show');
+    inputSearch.classList.remove('search__input--error');
+  }, 3000);
+}

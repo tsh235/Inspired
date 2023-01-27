@@ -84,7 +84,8 @@ export const renderCart = ({render, cartGoodsStore}) => {
           const isRemove = removeCart(product);
           if (isRemove) {
             li.remove();
-            calcTotalPrice.update();
+            calcTotalPrice.updateTotalPrice();
+            calcTotalPrice.updateCount();
           }
         })
       }
@@ -93,7 +94,8 @@ export const renderCart = ({render, cartGoodsStore}) => {
     const countBlock = renderCount(product.count, 'item__count', count => {
       product.count = count;
       addProductCart(product, true);
-      calcTotalPrice.update();
+      calcTotalPrice.updateTotalPrice();
+      calcTotalPrice.updateCount();
     });
 
     article.insertAdjacentElement('beforeend', countBlock);
@@ -114,7 +116,7 @@ export const renderCart = ({render, cartGoodsStore}) => {
     parent: cartTotal,
     append: createElement('span', {}, {
       cb(elem) {
-        calcTotalPrice.update();
+        calcTotalPrice.updateTotalPrice();
         calcTotalPrice.writeTotal(elem);
       }
     })
